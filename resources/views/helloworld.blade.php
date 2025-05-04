@@ -13,6 +13,21 @@
         <p>{{ $sec }}</p>
     @endforeach
     -->
+
+    <table>
+        @foreach ($students as $student)
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>{{ $student->student_name }}</td>
+            <td>{{ $student->age }}</td>
+            <td><a href="/delete-student/{{ $student->id }}">Delete</a></td>
+        </tr>
+        @endforeach
+    </table>
     <form action="/add-student" method="POST">
         @csrf
         <input type="text" name="name" placeholder="Enter your name">
